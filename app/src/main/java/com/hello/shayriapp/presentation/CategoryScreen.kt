@@ -2,6 +2,7 @@ package com.hello.shayriapp.presentation
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -26,6 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.hello.shayriapp.routing.ShayriRoutingItems
 import com.hello.shayriapp.ui.theme.primaryColor
 import com.hello.shayriapp.ui.theme.primaryLight
 
@@ -47,7 +49,9 @@ fun CategoryScreen(navHostController: NavHostController) {
                 .background(primaryColor)
         ) {
             Column {
-                MainToolbar(title = "Category") { TODO() }
+                MainToolbar(title = "Category") {
+                    (context as? android.app.Activity)?.finish()
+                }
 
                 LazyColumn {
                     items(getList()) { item ->
@@ -56,7 +60,10 @@ fun CategoryScreen(navHostController: NavHostController) {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .height(85.dp)
-                                .padding(10.dp),
+                                .padding(10.dp)
+                                .clickable {
+                                    navHostController.navigate(ShayriRoutingItems.ShayriListScreenItem.route + "/${item.title.toString()}")
+                                },
                             colors = CardDefaults.cardColors(
                                 containerColor = primaryLight
                             )

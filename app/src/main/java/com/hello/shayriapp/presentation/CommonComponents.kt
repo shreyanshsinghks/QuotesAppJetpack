@@ -1,6 +1,7 @@
 package com.hello.shayriapp.presentation
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -57,8 +58,8 @@ fun MainToolbar(title: String, onClick: () -> Unit) {
 
         Text(
             text = title, style = TextStyle(
-                fontSize = 18.sp, fontWeight = FontWeight.Bold
-            ), color = Color.White, modifier = Modifier.padding(20.dp)
+                fontSize = 24.sp, fontWeight = FontWeight.Bold
+            ), color = Color.White, modifier = Modifier.padding(start = 25.dp)
         )
     }
 }
